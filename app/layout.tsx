@@ -1,20 +1,21 @@
-import type { Metadata } from 'next'
-import './globals.css'
+// app/layout.tsx
+import "./globals.css"
+import { Providers } from "./providers" // make sure path matches
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: "Your App",
+  description: "Your description",
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }
